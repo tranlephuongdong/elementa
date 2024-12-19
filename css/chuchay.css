@@ -206,8 +206,7 @@ header .search-bar button {
 .hero-content {
 	max-width: 100%;
     position: absolute;      
-    top: 30px;                
-    left: 100px;                
+    top: 30px;                              
     color: #201E1E;
 	align: center;
 }
