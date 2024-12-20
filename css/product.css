@@ -208,7 +208,7 @@ header .search-bar button {
   margin: 0 auto; /* Căn giữa theo chiều ngang */
   justify-content: center; /* Căn giữa nội dung theo chiều ngang */
   align-items: center; /* Căn giữa nội dung theo chiều dọc */
-  height: 90vh; /* Chiều cao toàn màn hình */
+  height: 100vh; /* Chiều cao toàn màn hình */
   box-sizing: border-box;
 }
 
@@ -272,7 +272,8 @@ header .search-bar button {
 /* Right Column: Details */
 .product-right {
   flex: 1;
-  min-width: 300px;
+  max-width: 600px;
+margin: 30px
 }
 
 .product-price {
@@ -489,10 +490,10 @@ footer {
 
 .footer-mailing-list {
   flex: 1;
-  max-width: 900px; /* Đảm bảo độ rộng tối đa */
+  max-width: 600px; /* Đảm bảo độ rộng tối đa */
   text-align: left; /* Căn nội dung bên trái */
   padding: 0;
-  margin-right: 40px; /* Thêm khoảng cách với cột tiếp theo */
+  margin-left: 100px; /* Thêm khoảng cách với cột tiếp theo */
 }
 
 .footer-mailing-list h2 {

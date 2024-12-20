@@ -147,7 +147,7 @@ h1 {color:#007F76}
 }
 
 .logo a:hover {
-  color: #007F76; /* Optional: Add a hover effect for links */
+  color: #0B6A64; /* Optional: Add a hover effect for links */
 }
 
 header nav a {
@@ -301,29 +301,76 @@ header .search-bar button {
 }
 
 .category {
-    flex: 0 1 calc(40% - 30px); /* Mỗi cột chiếm 1/3 không gian, trừ khoảng cách */
-    text-align: center; /* Căn giữa nội dung bên trong cột */
-    padding: 10px; /* Khoảng cách bên trong cột */
-    background-color: #f9f9f9; /* Màu nền nhẹ cho cột */
-    border-radius: 8px; /* Bo góc các cột */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng khi hover */
+    flex: 0 1 calc(40% - 30px);
+    text-align: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
 
+.category .img-wrapper {
+    position: relative;
+    overflow: hidden; /* Ẩn phần thừa */
+}
+
 .category img {
-    height: 230px; /* Tự động điều chỉnh tỷ lệ */
-    width: 100%; /* Đặt chiều rộng tối đa 100% */
-    object-fit: cover; /* Cắt ảnh để giữ tỷ lệ vừa khung */
-    margin: 0 auto 15px; /* Căn giữa và tạo khoảng cách với nội dung dưới */
-    border-radius: 5px; 
-    transition: transform 0.3s ease, filter 0.3s ease; /* Thêm hiệu ứng mượt khi hover */
+    height: 230px;
+    width: 100%;
+    object-fit: cover;
+    margin: 0 auto 15px;
+    border-radius: 5px;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .category:hover img {
-    transform: scale(1.1); /* Phóng to hình ảnh lên 10% */
-    filter: brightness(0.9); /* Giảm độ sáng nhẹ */
+    transform: scale(1.1);
+    filter: brightness(0.9); /* Làm tối nhẹ ảnh */
 }
+
+.category p{
+	font-size: 16px;
+	margin-top: 5px
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 242px;
+    background-color: rgba(0, 0, 0, 0.5); /* Nền mờ tối */
+    opacity: 0; /* Ban đầu ẩn */
+    transition: opacity 0.3s ease; /* Hiệu ứng mượt */
+}
+
+.category:hover .overlay {
+    opacity: 1; /* Hiển thị lớp nền mờ */
+}
+
+.see-more {
+    position: absolute;
+    top: 50%; /* Căn giữa dọc */
+    left: 50%; /* Căn giữa ngang */
+    transform: translate(-50%, -50%);
+    background-color: #007F76; /* Màu nền mới */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0; /* Ẩn nút ban đầu */
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.category:hover .see-more {
+    opacity: 1; /* Hiển thị nút khi hover */
+    pointer-events: auto;
+}
+
 
 
 /*END CATEGORIES SECTION*/
@@ -370,8 +417,6 @@ header .search-bar button {
   width: 100%;
   max-width: 800px;
   overflow: hidden;
-  border-radius: 8px; /* Bo tròn các góc cho video */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /*<!-- HOW ELEMENTA WORKS -->*/
@@ -740,7 +785,7 @@ header .search-bar button {
 
 .banner-content, .hero-content {
   flex: 1; 
-  max-width: 50%; /* Giới hạn chiều rộng cho phần nội dung */
+  max-width: 40%; /* Giới hạn chiều rộng cho phần nội dung */
   padding: 20px; /* Thêm khoảng cách bên trong */
   word-wrap: break-word; /* Tự động xuống dòng khi cần */
   box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
@@ -748,37 +793,32 @@ header .search-bar button {
 }
 
 
-/* Container cho ảnh */
-.image-container {
+/* Container cho video */
+.video-container {
   flex: 1; /* Chiếm 50% không gian còn lại */
   display: flex;
-  justify-content: flex-end; /* Căn ảnh về bên phải */
+  justify-content: flex-end; /* Căn video về bên phải */
   align-items: center; /* Căn giữa theo chiều dọc */
   height: 100%; /* Chiều cao bằng với banner */
   overflow: hidden; /* Ẩn phần thừa */
 }
 
-/* Ảnh trong container */
-.image-container img {
-  width: 930px; /* Duy trì tỉ lệ gốc của ảnh */
-  height: 100%; /* Chiều cao ảnh vừa với container */
-  object-fit: cover; 
-  object-position: left bottom;
-  transition: transform 0.3s ease, filter 0.3s ease; /* Thêm hiệu ứng mượt */
+/* Video trong container */
+.responsive-video {
+  width: 100%; /* Chiều rộng 100% của container */
+  height: 100%; /* Chiều cao khớp với container */
+  object-fit: cover; /* Đảm bảo video bao phủ container */
+  object-position: center; /* Căn giữa video */
 }
 
-.image-container img:hover {
-  transform: scale(1.05); /* Phóng to ảnh lên 5% */
-  filter: brightness(0.9); /* Giảm độ sáng để làm nổi bật hover */
-}
-
+/* Responsive cho màn hình nhỏ */
 @media screen and (max-width: 768px) {
   .banner {
     flex-direction: column; /* Chuyển sang dọc trên màn hình nhỏ */
     height: auto; /* Chiều cao linh hoạt */
   }
   
-  .banner-content, .image-container {
+  .banner-content, .video-container {
     max-width: 100%; /* Chiếm toàn bộ chiều rộng */
     padding: 10px; /* Giảm padding */
   }
@@ -800,17 +840,10 @@ header .search-bar button {
 * {
 	margin: 0}
 
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
-  color: #333;
 }
 
 header {
@@ -1396,10 +1429,10 @@ header {
 
 .footer-mailing-list {
   flex: 1;
-  max-width: 900px; /* Đảm bảo độ rộng tối đa */
+  max-width: 600px; /* Đảm bảo độ rộng tối đa */
   text-align: left; /* Căn nội dung bên trái */
   padding: 0;
-  margin-right: 40px; /* Thêm khoảng cách với cột tiếp theo */
+  margin-left: 80px; /* Thêm khoảng cách với cột tiếp theo */
 }
 
 .footer-mailing-list h2 {
