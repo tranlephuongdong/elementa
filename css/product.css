@@ -37,7 +37,25 @@ header nav a {
     margin: 0 10px;
     text-decoration: none;
     color: #333;
+  padding: 5px 10px; 
+  border-radius: 5px; 
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển đổi mượt mà */
 }
+
+/* Hiệu ứng khi hover */
+header nav a:hover {
+  background-color: #007F76;
+  color: #fff;
+}
+
+/* Trạng thái khi click (active) */
+header nav a:active {
+  background-color: #007F76;
+  color: #fff;
+}
+
+
 header .search-bar input {
   padding: 5px;
 	border-radius: 25px;
